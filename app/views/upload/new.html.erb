@@ -1,0 +1,22 @@
+<h1>File uploader</h1>
+
+<%= form_for @file, :url => {:action => :create} do |f| %>
+    <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+        <%= f.label :file %>
+        <%= f.file_field :file %>
+    </div>
+
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+
+    <div class="actions">
+        <%= f.submit "Upload" %>
+    </div>
+
+<% end %>
+
+

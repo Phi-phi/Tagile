@@ -1,0 +1,14 @@
+<p>以下の画像に、新しいタグを追加します</p>   
+<%= image_tag @img.file.url %>
+<%= form_tag('',  :method => :post) do %>
+    <%= text_field :tag, :name %>
+    <%= hidden_field :tag, :id %>
+    <%= submit_tag %>
+<% end %>
+<ul>
+    <% @tags.each do |t| %>
+        <% if !@tag_ids.include?(t.id) %> 
+            <li><%= link_to t.name, select_tag_path(t, @img) %></li>
+        <% end %>
+    <% end %>
+</ul>

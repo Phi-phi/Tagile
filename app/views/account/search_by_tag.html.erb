@@ -1,0 +1,16 @@
+<div id="map">
+    <ul>
+        <% @tags.each do |tag| %>
+            <li><%= link_to tag.name, search_tag_path(tag) %></li>
+        <% end %>
+    </ul>
+</div>
+<div id="main">
+    <h3>Tag: <%= @selected_tag.name %></h3>
+    <% @uploads.each do |img| %>
+        title:<%= img.name %>
+        <%= link_to image_tag(img.file.thumb.url), image_path(img) %><br>
+    <% end %>
+</div>
+
+

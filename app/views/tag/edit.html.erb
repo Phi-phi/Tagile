@@ -1,0 +1,9 @@
+<%= form_tag '/tag', method: :put do %>
+    <% @tags.each do |tag| %>
+        <%= fields_for "tags[]", tag  do |t| %>
+            <%= t.text_field :name %>
+            <br>
+        <% end %>
+    <% end %>
+    <%= submit_tag %>
+<% end %>

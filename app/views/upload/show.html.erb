@@ -1,0 +1,11 @@
+<br>
+<%= @image.name %>
+<%= image_tag @image.file.url %>
+<br>
+<h3>Tags</h3>
+<ul>
+<% @image.tags.each do |tag| %>
+    <li><%= tag.name %></li>
+<% end %>
+<%= link_to "Add new tag to this image", create_tag_path %><br>
+</ul>

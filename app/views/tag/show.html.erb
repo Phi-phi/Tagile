@@ -1,0 +1,6 @@
+<h1>All tag</h1>
+<% @tags.each do |t| %>
+    <%= link_to t.name, search_tag_path(t) %><br>
+<% end %><br> 
+<%= link_to "new tag", new_tag_path %><br>
+<%= link_to "edit tags", edit_tag_path %>
