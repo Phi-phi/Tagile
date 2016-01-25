@@ -1,7 +1,11 @@
 <%= form_for @tag, :url => :tag do |f| %>
     <%= f.label :name, "name" %>
     <%= f.text_field :name %>
-
+    <ul>
+    <% @tags.each do |t| %>
+        <li><%= t.name %></li>
+    <% end %>
+    </ul>
     <%= f.hidden_field :user_id, :value => current_user.id %>
 
     <%= f.submit %>

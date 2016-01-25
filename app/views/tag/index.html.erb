@@ -1,3 +1,5 @@
+<ul>
 <% @tags.each do |t| %>
-    <%= link_to t.name, search_tag_path(t) %>
+    <li> <%= link_to t.name, search_tag_path(t) %></li>
 <% end %>
+</ul>

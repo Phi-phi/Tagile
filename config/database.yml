@@ -20,6 +20,10 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
+  host: <%= ENV['RDS_HOST'] %>
+  username: <%= ENV['RDS_USER'] %>
+  port: 5432
+  password: <%= ENV['RDS_PASS'] %>
 
 development:
   <<: *default
@@ -81,5 +85,3 @@ test:
 production:
   <<: *default
   database: tagile_production
-  username: <%= ENV['TAGILE_DATABASE_USER'] %>
-  password: <%= ENV['TAGILE_DATABASE_PASSWORD'] %>

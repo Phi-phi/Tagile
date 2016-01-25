@@ -1,13 +1,22 @@
 <div id="map">
     <ul>
-    <% @tags.each do |tag| %>
+        <li><%= link_to "all", account_path %></li>
+        <% @tags.each do |tag| %>
         <li><%= link_to tag.name, search_tag_path(tag) %></li>
     <% end %>
     </ul>
 </div>
 <div id="main">
-    <% @uploads.each do |img| %>
-        title:<%= img.name %>
-        <%= link_to image_tag(img.file.thumb.url), image_path(img) %> <br>
-    <% end %>
+    <table>
+        <tr>
+            <td>Title</td>
+            <td>Image</td>
+        </tr>
+        <% @uploads.each do |img| %>
+            <tr>
+                <td><%= img.name %></td>
+                <td><%= link_to image_tag(img.file.thumb.url), image_path(img) %> </td>
+            </tr>
+        <% end %>
+    </table>
 </div>

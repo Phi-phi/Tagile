@@ -2,13 +2,16 @@
 <%= image_tag @img.file.url %>
 <%= form_tag('',  :method => :post) do %>
     <%= text_field :tag, :name %>
-    <%= hidden_field :tag, :id %>
+    <%= hidden_field :tag, :user_id, :value => current_user.id %>
+    <%= hidden_field :tag, :id, :value => @img.id %>
     <%= submit_tag %>
 <% end %>
 <ul>
     <% @tags.each do |t| %>
         <% if !@tag_ids.include?(t.id) %> 
             <li><%= link_to t.name, select_tag_path(t, @img) %></li>
+        <% else %>
+            <li><%= t.name %></li>
         <% end %>
     <% end %>
 </ul>

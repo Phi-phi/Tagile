@@ -8,9 +8,13 @@ Rails.application.routes.draw do
   post 'upload' => 'upload#create'
 
   resource :tag, :controller => 'tag'
+  get 'tags' => 'tag#index'
+  get 'tag/:id' => 'tag#show'
   get 'search/tag/:id' => 'account#search_by_tag', :as => :search_tag
   get 'create/tag/:id' => 'account#create_tag', :as => :create_tag
 
+  get 'edit/img/:id' => 'account#edit_img'
+  patch 'edit/img' => 'account#edit_img_post'
   post 'create/tag/:id' => 'account#regist_tag'
   get 'select/tag/:tid/:img' => 'account#select_tag', :as => :select_tag 
   get 'images' => 'upload#index'
