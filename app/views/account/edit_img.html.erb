@@ -1,0 +1,19 @@
+<h3>画像の編集</h3>
+
+<%= image_tag @img.file.url %>
+
+<%= form_for @img, :url => {:action => 'edit_img_post'} do |f| %>
+    <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name, :value => @img.name  %>
+        <%= f.hidden_field :file, :value => @img.file %>
+        <% session[:filename] = @img.file %>
+    </div>
+    Delete Tag.<br>
+    <% @img.tags.each do |t| %>
+        <%= check_box_tag "del_tag[]", t.id %>
+        <%= f.label :del_tag, t.name %>
+        <br>
+    <% end %>
+    <%= f.submit %>
+<% end %>
