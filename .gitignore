@@ -11,9 +11,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 <<<<<<< HEAD
-#/public/uploads/*
+/public/uploads/*
 =======
-/public/uploads/
 >>>>>>> origin/master
 !/log/.keep
 /tmp
